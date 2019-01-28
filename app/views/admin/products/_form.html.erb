@@ -1,0 +1,104 @@
+<% if product.errors.any? %>
+  <div id="error_explanation" class="text-danger">
+    <h4><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h4>
+    <ul class="list-group">
+    <% product.errors.full_messages.each do |message| %>
+      <li class="list-group-item"><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control', placeholder: 'Enter title' %>
+  <small id="titleHelp" class="form-text text-muted">Title of your product</small>
+</div>
+
+<div class="form-group">
+  <%= f.label :category_id %>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name, {}, { class: 'form-control' } %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :product_type_id %>
+  <%= f.collection_select :product_type_id, ProductType.order(:name), :id, :name, {}, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <%= f.label :no_of_pages %>
+  <%= f.number_field :no_of_pages, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :publisher %>
+  <%= f.text_field :publisher, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :isbn %>
+  <%= f.text_field :isbn, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :price %>
+  <%= f.text_field :price, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :writer_name %>
+  <%= f.text_field :writer_name, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <div class="form-check">
+    <label class="form-check-label">
+      <%= f.check_box :out_of_stock, class: 'form-check-input' %>
+      Out of Stock
+    </label>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :image %>
+  <% if @product.image.exists? %>
+    <%= image_tag(@product.image.url(:thumb), class: 'thumbnail_image img-thumbnail') %><br/><br/>
+  <% end %>
+  <%= f.file_field :image, class: 'form-control' %>
+  <small id="fileHelp" class="form-text text-muted">
+    Image file(only jpeg, jpg, png)
+  </small>
+  <div class="form-check">
+    <label class="form-check-label">
+      <%= f.check_box :delete_image, class: 'form-check-input' %>
+      Delete Image
+    </label>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :product_file %>
+  <% if @product.product_file.exists? %>
+    <a href="<%= @product.product_file.url %>" target="_blank">Download File</a><br/>
+  <% end %>
+  <%= f.file_field :product_file, class: 'form-control' %>
+  <small id="fileHelp" class="form-text text-muted">
+    Product file(only pdf)
+  </small>
+  <div class="form-check">
+    <label class="form-check-label">
+      <%= f.check_box :delete_product_file, class: 'form-check-input' %>
+      Delete Product File
+    </label>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  <%= link_to 'Back', admin_products_path, class: 'btn btn-warning btn-sm' %>
+</div>

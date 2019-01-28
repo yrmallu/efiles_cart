@@ -1,0 +1,16 @@
+<div class="col-sm-4 col-lg-4 col-md-4">
+  <div class="thumbnail">
+    <a href='<%= product_path(product) %>'>
+      <%= image_tag(product.image.url(:thumb), :class => 'thumbnail_image') %>
+    </a>
+    <div class="caption">
+      <h4 class="pull-right">$<%= product.price %></h4>
+      <h5>
+        <%= link_to truncate_str(title_format(product.title), 75), product_path(product) %>
+      </h5>
+      <p>
+        <%=raw render_add_to_basket(product) %>
+      </p>
+    </div>
+  </div>
+</div>

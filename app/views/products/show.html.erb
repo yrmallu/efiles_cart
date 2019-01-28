@@ -1,0 +1,16 @@
+<div class="row">
+
+  <%= render partial: 'common/left_side_bar' %>
+
+  <div class="col-md-9">
+    <div class="row">
+      <% if @product.present? %>
+        <%= render partial: 'products/product' %>
+      <% else %>
+        <div class="alert alert-info fade in">
+          Product not exist
+        </div>
+      <% end %>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <%= link_to 'E-File Cart : Admin', admin_root_path, class: 'navbar-brand' %>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <%= link_to('Users', admin_users_path) %>
+                </li>
+                <li>
+                  <%= link_to('Categories', admin_categories_path) %>
+                </li>
+                <li>
+                  <%= link_to('Products', admin_products_path) %>
+                </li>
+                <li>
+                    <%= link_to('Orders', admin_orders_path) %>
+                </li>
+                <li>
+                  <%= link_to('My Profile', edit_user_registration_path) %>
+                </li>
+                <li>
+                  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>

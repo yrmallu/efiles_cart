@@ -1,0 +1,6 @@
+<div class="col-8 col-sm-8">
+  <h3>New Product</h3>
+  <%= form_for(@product, url: admin_products_path, html: { multipart: true }) do |f| %>
+    <%= render 'form', product: @product, f: f %>
+  <% end %>
+</div>

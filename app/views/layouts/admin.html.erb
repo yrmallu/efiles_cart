@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E-File Cart : Admin</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <%= render partial: 'common/admin_header' %>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-auto">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <%= render partial: 'common/footer' %>
+    <!-- /.container -->
+
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

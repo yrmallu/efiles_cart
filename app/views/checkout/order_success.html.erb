@@ -1,0 +1,14 @@
+<div class="row">
+  <%= render partial: 'common/left_side_bar' %>
+
+  <div class="col-md-9">
+    <div class="row">
+      <p>
+        <h4 class="text-primary">Thanks for your order!</h4> <br/>
+        <h5 class="text-primary">Your order number is <%= @order.id %>.</h5>
+      </p>
+      <div class="col-12 col-md-auto">
+        We will send order e-products soon to your registered email address <%= current_user.email %>.
+      </div>
+    </div>
+</div>

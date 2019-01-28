@@ -1,0 +1,16 @@
+<div class="row search">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label"><h4>E-Files</h4></label>
+    <div class="col-sm-10">
+      <select class="form-control product_filter js-product_filter" onchange="location = this.value;">
+        <option value="<%= search_path %>">Sort by</option>
+        <option value="<%= search_path(sort: 'plth') %>" <%= 'selected' if params[:sort] == 'plth'%>>
+          Sort by: Price Low To High
+        </option>
+        <option value="<%= search_path(sort: 'phtl') %>" <%= 'selected' if params[:sort] == 'phtl'%>>
+          Sort by: Price High To Low
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

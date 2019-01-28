@@ -1,0 +1,16 @@
+<div class="row">
+
+  <%= render partial: 'common/left_side_bar' %>
+
+  <div class="col-md-9">
+
+    <%= render partial: 'home/home_slider' %>
+    <%= render partial: 'home/filters' %>
+    <div class="row">
+      <% @products.each do |product| %>
+        <%= render partial: 'common/product', locals: { product: product } %>
+      <% end %>
+      <%= render partial: 'common/more_product' if is_load_needed?(@products) %>
+    </div>
+
+</div>

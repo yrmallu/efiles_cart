@@ -1,0 +1,22 @@
+<div class="row">
+  <%= render partial: 'common/left_side_bar' %>
+
+  <div class="col-md-9">
+    <div class="row">
+      <p>
+        <h4 class="text-primary">Verify Token!</h4><br/>
+      </p>
+      <div class="col-12 col-md-auto">
+        <form action="<%= checkout_process_order_path %>" method="post" onsubmit="return validateTokenForm()">
+          <div class="form-group">
+            <label for="token">Token: </label>
+            <input type="text" name="token" class="form-control js-token" id="token" placeholder="Enter token" />
+            <div class="text-danger js-token_error hide">Please enter authy token.</div>
+          </div>
+          <input type="hidden" name="uuid" id="uuid" value="<%= @uuid %>" />
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <button type="submit" class="btn btn-primary">Authorize</button>
+        </form>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row">
+  <%= render partial: 'common/my_account_sidebar' %>
+  <div class="col-md-9">
+    <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Order Date</th>
+            <th>Status</th>
+            <th>Total Amount</th>
+            <th>No of Products</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <th scope="row">
+                <%= link_to "order# #{order.id}", "/myorders/#{order.id}" %>
+              </th>
+              <td><%= order.order_date.strftime('%d-%m-%Y') %></td>
+              <td><%= order.get_status %></td>
+              <td><%= format_price(order.total) %></td>
+              <td><%= order.product_count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

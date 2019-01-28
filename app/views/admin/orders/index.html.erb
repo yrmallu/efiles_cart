@@ -1,0 +1,32 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Order Date</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>No of Products</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <th scope="row">
+            <%= link_to "Order# #{order.id}", admin_order_path(order) %>
+          </th>
+          <td><%= order.order_date.strftime('%d-%m-%Y') %></td>
+          <td><%= order.get_status %></td>
+          <td><%= format_price(order.total) %></td>
+          <td><%= order.product_count %></td>
+          <td>
+            <%= link_to 'Edit', admin_order_path(order) %> /
+            <%= link_to 'Destroy', admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

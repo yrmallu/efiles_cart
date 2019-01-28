@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E-File Cart</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <%= render partial: 'common/header' %>
+
+    <!-- Page Content -->
+    <div class="container">
+        <%= yield %>
+    </div>
+    <!-- /.container -->
+
+    <%= render partial: 'common/footer' %>
+    <!-- /.container -->
+
+    <%= render partial: 'common/modal' %>
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

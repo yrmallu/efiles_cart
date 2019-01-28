@@ -1,0 +1,6 @@
+<div class="col-8 col-sm-8">
+  <h3>Edit Product</h3>
+  <%= form_for(@product, url: admin_product_path(@product)) do |f| %>
+    <%= render 'form', product: @product, f: f %>
+  <% end %>
+</div>

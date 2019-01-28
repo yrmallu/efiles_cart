@@ -1,0 +1,17 @@
+<div class="row">
+
+  <%= render partial: 'common/left_side_bar' %>
+
+  <div class="col-md-9">
+
+    <div class="row">
+      <% if @cart.present? &&  @cart.cart_products.present? %>
+        <%= render partial: 'carts/cart_table' %>
+      <% else %>
+        <div class="alert alert-info fade in">
+          Your cart is empty.
+        </div>
+      <% end %>
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Hi <%= @user.name %>,</h3><br/>
+    ===============================================
+    <br/>
+    <p>
+      Thank you very much for your order. Please find e-product detail below:<br/>
+      <br/>
+      Title: <%= @product.title %><br/>
+      Price: <%= @order_product.price %><br/>
+      Publisher: <%= @product.publisher %><br/>
+      ISBN: <%= @product.isbn %><br/>
+      Writer Name: <%= @product.writer_name %><br/>
+      <br/>
+      Please find attached e-product which you purchased.<br/>
+    </p>
+    <br/>
+    We hope to see you again soon!<br/>
+    E-File Cart.
+
+  </body>
+</html>

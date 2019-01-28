@@ -1,0 +1,54 @@
+<div class="table-responsive cart-table">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th class="text-center">Qty</th>
+        <th class="text-right">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart.cart_products.each do |cart_product| %>
+        <tr>
+          <th scope="row">
+            <a href="<%= product_path(cart_product.product) %>">
+              <%= image_tag(cart_product.product.image.url(:thumb), :class => 'thumbnail_image') %>
+            </a>
+            <a href="<%= product_path(cart_product.product) %>">
+              <%= cart_product.product.title %>
+              <%=raw out_of_stock_message(cart_product.product) %>
+            </a>
+          </th>
+          <td>
+            $<%= cart_product.price %>
+          </td>
+          <td class="text-center">
+            <%= cart_product.qty %><br/>
+            <h6>
+              <%= link_to 'Remove', "/cart/remove_product/#{cart_product.id}",
+              data: {:confirm => 'Are you sure?'}, :method => :delete %>
+            </h6>
+          </td>
+          <td class="text-right">
+            $<%= cart_product.price %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="5" class="bg-info text-right">
+            <h4>
+              Total: <span class="text-info">$<%= @cart.total %></span>
+            </h4>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="bg-info text-right">
+          <a href = "/checkout/init" class = "btn btn-primary btn" role = "button">
+            Checkout Now
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

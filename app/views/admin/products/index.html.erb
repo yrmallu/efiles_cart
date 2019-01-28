@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h3>Products</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>No pages</th>
+      <th>Publisher</th>
+      <th>Price</th>
+      <th>Out of Stock</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |admin_product| %>
+      <tr>
+        <td scope="row"><%= admin_product.title %></td>
+        <td><%= admin_product.no_of_pages %></td>
+        <td><%= admin_product.publisher %></td>
+        <td><%= format_price(admin_product.price) %></td>
+        <td class="text-center">
+          <% if admin_product.out_of_stock %>
+            <span class="text-danger">Out of Stock</span>
+          <% else %>
+            <span class="text-success">In Stock</span>
+          <% end %>
+        </td>
+        <td><%= link_to 'Edit', edit_admin_product_path(admin_product) %></td>
+        <td><%= link_to 'Destroy', admin_product_path(admin_product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary btn-sm' %>
